@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Login | AI Workforce OS</title>
+
+    <link rel="stylesheet" href="/static/auth.css" />
+  </head>
+
+  <body>
+    <div class="bg-animation"></div>
+
+    <div class="auth-wrapper">
+      <div class="auth-card">
+        <div class="logo">AI</div>
+
+        <h1>Welcome Back</h1>
+
+        <p class="subtitle">Your Workforce Is Waiting</p>
+
+        <form id="loginForm">
+          <label for="email">Email</label>
+
+          <input id="email" type="email" autocomplete="email" required />
+
+          <label for="password">Password</label>
+
+          <input id="password" type="password" autocomplete="current-password" required />
+
+          <button class="btn" type="submit">Launch My Company</button>
+        </form>
+
+        <div class="link">
+          No account?
+
+          <a href="/register"> Create one </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/auth.js"></script>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const body = {
+            email: email.value,
+
+            password: password.value,
+          };
+
+          const response = await fetch("/auth/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+            localStorage.setItem("token", result.access_token);
+
+            localStorage.setItem("userName", result.display_name);
+
+            window.location = "/dashboard";
+          } else {
+            alert(result.detail);
+          }
+        });
+    </script>
+  </body>
+</html>

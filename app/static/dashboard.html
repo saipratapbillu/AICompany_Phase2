@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Workforce OS™ Dashboard</title>
+
+    <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+
+<body>
+
+    <div id="app">
+
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="logo">AI</div>
+                <div>
+                    <h2>AI Workforce OS</h2>
+                    <span>Executive Command Center</span>
+                </div>
+            </div>
+
+            <nav>
+
+                <a href="/dashboard" class="active">Dashboard</a>
+
+                <a href="/">Requirements</a>
+
+                <a href="/projects">Projects</a>
+
+                <a href="/approvals">Approvals</a>
+
+                <a href="/profile">Profile</a>
+
+            </nav>
+
+            <button class="logout-btn" onclick="logout()">
+                Logout
+            </button>
+
+        </aside>
+
+        <main class="content">
+
+            <header class="topbar">
+
+                <div>
+
+                    <h1>
+                        Welcome,
+                        <span id="userName"></span>
+                    </h1>
+
+                    <p>
+                        AI Workforce Operating System
+                    </p>
+
+                </div>
+
+                <div class="role-badge" id="roleBadge">
+                </div>
+
+            </header>
+
+            <section class="kpi-grid">
+
+                <div class="kpi-card">
+                    <h3>Requirements</h3>
+                    <span id="requirementsCount">0</span>
+                </div>
+
+                <div class="kpi-card">
+                    <h3>Assessments</h3>
+                    <span id="assessmentsCount">0</span>
+                </div>
+
+                <div class="kpi-card">
+                    <h3>Projects</h3>
+                    <span id="projectsCount">0</span>
+                </div>
+
+                <div class="kpi-card">
+                    <h3>Approvals</h3>
+                    <span id="approvalsCount">0</span>
+                </div>
+
+            </section>
+
+            <section class="panel">
+
+                <h2>AI Workforce Overview</h2>
+
+                <div class="workforce-grid">
+
+                    <div class="agent-card">
+                        🤖 AI CEO
+                    </div>
+
+                    <div class="agent-card">
+                        💰 AI CFO
+                    </div>
+
+                    <div class="agent-card">
+                        ⚙ AI COO
+                    </div>
+
+                    <div class="agent-card">
+                        💻 AI CTO
+                    </div>
+
+                    <div class="agent-card">
+                        👥 AI HR
+                    </div>
+
+                    <div class="agent-card">
+                        🔒 AI CISO
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="panel">
+
+                <h2>Recent Activities</h2>
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Activity</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="activityTable">
+
+                        <tr>
+                            <td>Today</td>
+                            <td>Dashboard Initialized</td>
+                            <td>Success</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="/static/dashboard.js"></script>
+
+</body>
+
+</html>

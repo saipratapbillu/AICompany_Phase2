@@ -1,0 +1,59 @@
+AI_Company_Phase2_UI
+│
+├── app
+│   │
+│   ├── main.py
+│   │
+│   ├── api
+│   │   ├── auth.py
+│   │   ├── users.py
+│   │   ├── requirements.py
+│   │   ├── projects.py
+│   │   ├── approvals.py
+│   │   └── dashboard.py
+│   │
+│   ├── db
+│   │   ├── session.py
+│   │   └── database.py
+│   │
+│   ├── models
+│   │   ├── user.py
+│   │   ├── role.py
+│   │   ├── requirement.py
+│   │   ├── project.py
+│   │   └── approval.py
+│   │
+│   ├── schemas
+│   │   ├── auth.py
+│   │   ├── user.py
+│   │   ├── requirement.py
+│   │   └── project.py
+│   │
+│   ├── services
+│   │   ├── auth_service.py
+│   │   ├── user_service.py
+│   │   └── workflow_service.py
+│   │
+│   ├── security
+│   │   ├── jwt.py
+│   │   ├── password.py
+│   │   └── dependencies.py
+│   │
+│   └── static
+│       ├── landing.html
+│       ├── login.html
+│       ├── register.html
+│       ├── profile.html
+│       ├── dashboard.html
+│       │
+│       ├── landing.css
+│       ├── auth.css
+│       ├── dashboard.css
+│       │
+│       ├── landing.js
+│       ├── auth.js
+│       └── dashboard.js
+│
+├── requirements.txt
+├── .env
+└── README.md

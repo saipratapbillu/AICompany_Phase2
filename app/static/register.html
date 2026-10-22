@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Register</title>
+
+<link rel="stylesheet"
+href="/static/auth.css">
+
+</head>
+
+<body>
+
+<div class="bg-animation"></div>
+
+<div class="auth-wrapper">
+
+<div class="auth-card">
+
+<div class="logo">AI</div>
+
+<h1>Create Account</h1>
+
+<p class="subtitle">
+Build Your Digital Workforce
+</p>
+
+<form id="registerForm">
+
+<div class="grid">
+
+<div>
+
+<label>First Name</label>
+<input id="firstName" required>
+
+</div>
+
+<div>
+
+<label>Last Name</label>
+<input id="lastName" required>
+
+</div>
+
+</div>
+
+<label>Email</label>
+<input id="email" type="email" required>
+
+<label>Department</label>
+<input id="department">
+
+<label>Position</label>
+<input id="position">
+
+<label>Location</label>
+<input id="location">
+
+<label>Password</label>
+<input id="password"
+type="password"
+required>
+
+<button
+type="submit"
+class="btn">
+
+Create My AI Company
+
+</button>
+
+</form>
+
+<div class="link">
+
+Already registered?
+
+<a href="/login">
+
+Login
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="/static/auth.js"></script>
+
+<script>
+
+document
+.getElementById("registerForm")
+.addEventListener(
+"submit",
+async e=>{
+
+e.preventDefault()
+
+const response =
+await fetch(
+"/users/register",
+{
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:JSON.stringify({
+
+first_name:
+firstName.value,
+
+last_name:
+lastName.value,
+
+email:
+email.value,
+
+department:
+department.value,
+
+position_title:
+position.value,
+
+office_location:
+location.value,
+
+password:
+password.value
+
+})
+
+})
+
+if(response.ok){
+
+alert(
+"Registration Successful"
+)
+
+window.location="/login"
+
+}
+else{
+
+const result =
+await response.json()
+
+alert(
+result.detail ||
+"Registration Failed"
+)
+
+}
+
+})
+
+</script>
+
+</body>
+</html>

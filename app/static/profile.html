@@ -1,0 +1,59 @@
+<script>
+
+const token =
+localStorage.getItem("token");
+
+if(!token){
+    window.location = "/login";
+}
+
+try{
+
+    const payload =
+    JSON.parse(
+        atob(
+            token.split(".")[1]
+        )
+    );
+
+    document.getElementById(
+        "displayName"
+    ).value =
+    payload.name || "";
+
+    document.getElementById(
+        "email"
+    ).value =
+    payload.email || "";
+
+    document.getElementById(
+        "department"
+    ).value =
+    payload.department || "";
+
+}
+catch(error){
+
+    localStorage.removeItem(
+        "token"
+    );
+
+    window.location =
+        "/login";
+}
+
+function logout(){
+
+    localStorage.removeItem(
+        "token"
+    );
+
+    localStorage.removeItem(
+        "userName"
+    );
+
+    window.location =
+        "/login";
+}
+
+</script>
